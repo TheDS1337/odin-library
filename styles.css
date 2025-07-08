@@ -1,0 +1,26 @@
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+}
+
+tr > * {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px 30px;
+}
+
+th {
+    color: #f96d00;
+    background-color: #222831;
+}
+
+td {
+    color: #f96d00;
+}
+
+tr:nth-child(even) > td {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) > td {
+  background-color: #393e46;
+}
