@@ -47,19 +47,27 @@ tr:nth-child(odd) > td {
     border-radius: 10px;
 }
 
-#new-book-form {
+#new-book-dialog {
+    padding: 0;
+    border: 1px solid var(--palette-color-4);
+    border-radius: 10px;
+}
+
+#new-book-dialog::backdrop {
+    backdrop-filter: blur(1px);
+}
+
+#new-book-dialog > form {
     padding: 30px;
     width: 500px;
     color: var(--palette-color-3);
     background-color: var(--palette-color-1);
-    border: 1px solid var(--palette-color-4);
-    border-radius: 10px;
     display: grid;
     grid-template: repeat(2, 50px) 1fr 50px / repeat(2, 1fr);
     gap: 20px;
 }
 
-#new-book-form > fieldset {
+#new-book-dialog fieldset {
     grid-column: -1 / 1;
     margin: 0 100px;
     background-color: var(--palette-color-2);
@@ -70,28 +78,26 @@ tr:nth-child(odd) > td {
     gap: 50px;
 }
 
-#new-book-form > div {
+#new-book-dialog > form > div {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-#new-book-form label, #new-book-form legend {
+#new-book-dialog label, #new-book-dialog legend {
     font-weight: bold;
     text-align: center;
 }
 
-#new-book-form input {
+#new-book-dialog input {
     color: var(--palette-color-4);
     background-color: var(--palette-color-2);
 }
 
 
-#new-book-form > button {
-    grid-column: -1 / 1;
+#new-book-dialog button {
     font-weight: bold;
     color: var(--palette-color-3);
     background-color: var(--palette-color-1);
-    margin: 5px 150px;
     border-radius: 10px;
 }

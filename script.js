@@ -91,9 +91,20 @@ addBookToLibrary("The C Programming Language (2nd Edition)", "Dennis M. Ritchie,
 
 const bodyElement = document.querySelector("body");
 const newBookButtonElement = document.querySelector("#new-book-button");
+const dialogElement = document.querySelector("#new-book-dialog")
+const submitButtonElement = document.querySelector("#new-book-dialog button[type='submit']");
+const cancelButtonElement = document.querySelector("#new-book-dialog button[type='reset']");
 
 newBookButtonElement.addEventListener("click", event => {
-    console.log("Button clicked!");
+    dialogElement.showModal();
+});
+
+submitButtonElement.addEventListener("click", event => {
+    event.preventDefault();
+});
+
+cancelButtonElement.addEventListener("click", event => {
+    dialogElement.close();
 });
 
 displayBooks();
