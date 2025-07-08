@@ -1,3 +1,10 @@
+:root {
+    --palette-color-1: #222831;
+    --palette-color-2: #393e46;
+    --palette-color-3: #f96d00;
+    --palette-color-4: #f2f2f2;
+} 
+
 body {
     background-color: #403963;
     display: flex;
@@ -8,34 +15,83 @@ body {
 
 table {
     margin: auto;
-    color: #f96d00;
+    color: var(--palette-color-3);
     border-collapse: collapse;
-    border: 2px solid rgb(200, 200, 200);
+    border: 2px solid var(--palette-color-4);
 }
 
 tr > * {
-    border: 1px solid rgb(190, 190, 190);
+    border: 1px solid var(--palette-color-4);
     padding: 10px 30px;
 }
 
 th {
     font-weight: bold;
-    background-color: #222831;
+    background-color: var(--palette-color-1);
 }
 
 tr:nth-child(even) > td {
-  background-color: #f2f2f2;
+    background-color: var(--palette-color-4);
 }
 
 tr:nth-child(odd) > td {
-  background-color: #393e46;
+    background-color: var(--palette-color-2);
 }
 
-#add-book {
+#new-book-button {
     margin: auto;
     padding: 10px 30px;
     font-weight: bold;
-    color: #f96d00;
-    background-color: #222831;
+    color: var(--palette-color-3);
+    background-color: var(--palette-color-1);
+    border-radius: 10px;
+}
+
+#new-book-form {
+    padding: 30px;
+    width: 500px;
+    color: var(--palette-color-3);
+    background-color: var(--palette-color-1);
+    border: 1px solid var(--palette-color-4);
+    border-radius: 10px;
+    display: grid;
+    grid-template: repeat(2, 50px) 1fr 50px / repeat(2, 1fr);
+    gap: 20px;
+}
+
+#new-book-form > fieldset {
+    grid-column: -1 / 1;
+    margin: 0 100px;
+    background-color: var(--palette-color-2);
+    border-color: var(--palette-color-1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+#new-book-form > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#new-book-form label, #new-book-form legend {
+    font-weight: bold;
+    text-align: center;
+}
+
+#new-book-form input {
+    color: var(--palette-color-4);
+    background-color: var(--palette-color-2);
+}
+
+
+#new-book-form > button {
+    grid-column: -1 / 1;
+    font-weight: bold;
+    color: var(--palette-color-3);
+    background-color: var(--palette-color-1);
+    margin: 5px 150px;
     border-radius: 10px;
 }

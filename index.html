@@ -10,6 +10,44 @@
     <title>Some library in Dublin</title>
 </head>
 <body>
-    <button id="add-book">New Book</button>
+    <button id="new-book-button">New Book</button>
+
+    <form id="new-book-form" method="dialog">
+        <div>
+            <label for="title-input">Title</label>
+            <input type="text" name="title-input" required>
+        </div>
+
+        <div>
+            <label for="author-input">Author</label>
+            <input type="text" name="author-input" required>
+        </div>
+
+        <div>
+            <label for="publishing-year-input">Publishing year</label>
+            <input type="tel" name="publishing-year-input" min="0" max="2026" required>
+        </div>
+        
+        <div>
+            <label for="number-of-pages-input">Number of pages</label>
+            <input type="tel" name="number-of-pages-input" min="1" required>
+        </div>
+
+        <fieldset>
+            <legend>Have you read it before?</legend>
+            
+            <div>
+                <input type="radio" id="read-input" name="read-input">
+                <label for="read-input">yes</label>
+            </div>
+
+            <div>
+                <input type="radio" id="read-input" name="read-input">
+                <label for="read-input">no</label>
+            </div>
+        </fieldset>
+
+        <button>Add</button>
+    </form>
 </body>
 </html>

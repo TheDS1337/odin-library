@@ -90,7 +90,7 @@ addBookToLibrary("Crime and Punishment (Russian)", "Fyodor Dostoevsky", 1866, 52
 addBookToLibrary("The C Programming Language (2nd Edition)", "Dennis M. Ritchie, Brian W. Kernighan", 1988, 272, true);
 
 const bodyElement = document.querySelector("body");
-const newBookButtonElement = document.querySelector("button");
+const newBookButtonElement = document.querySelector("#new-book-button");
 
 newBookButtonElement.addEventListener("click", event => {
     console.log("Button clicked!");
