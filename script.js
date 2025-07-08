@@ -86,25 +86,41 @@ function displayBooks()
     bodyElement.insertBefore(tableElement, bodyElement.firstChild);
 }
 
-addBookToLibrary("Crime and Punishment (Russian)", "Fyodor Dostoevsky", 1866, 527);
-addBookToLibrary("The C Programming Language (2nd Edition)", "Dennis M. Ritchie, Brian W. Kernighan", 1988, 272, true);
-
 const bodyElement = document.querySelector("body");
 const newBookButtonElement = document.querySelector("#new-book-button");
 const dialogElement = document.querySelector("#new-book-dialog")
-const submitButtonElement = document.querySelector("#new-book-dialog button[type='submit']");
-const cancelButtonElement = document.querySelector("#new-book-dialog button[type='reset']");
+const formElement = document.querySelector("#new-book-dialog > form");
+const cancelButtonElement = document.querySelector("#new-book-dialog button[value='cancel']");
 
-newBookButtonElement.addEventListener("click", event => {
-    dialogElement.showModal();
+newBookButtonElement.addEventListener("click", () => {
+    formElement.reset();
+    dialogElement.showModal()
 });
 
-submitButtonElement.addEventListener("click", event => {
-    event.preventDefault();
-});
-
-cancelButtonElement.addEventListener("click", event => {
+cancelButtonElement.addEventListener("click", () => {
     dialogElement.close();
+    dialogElement.returnValue = "close";
 });
 
-displayBooks();
+dialogElement.addEventListener("close", () => {
+    if( dialogElement.returnValue !== 'add' )
+        return;
+
+    const formData = new FormData(formElement);
+    
+    addBookToLibrary(formData.get('title'),
+        formData.get('author'),
+        formData.get('publishing-year'),
+        formData.get('number-of-pages'),
+        formData.get('read') === 'true'
+    );
+
+    // Remove old one in case it exists
+    const tableElement = document.querySelector("table");
+
+    if( tableElement !== null )
+        tableElement.remove();
+
+    // Recreat the table
+    displayBooks();
+});
