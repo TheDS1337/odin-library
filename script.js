@@ -1,5 +1,10 @@
 myLibrary = [];
 
+Book.prototype.toggleRead = function()
+{
+    this.read = !this.read;
+}
+
 function Book(title, author, publishingYear, numOfPages, read)
 {
     if( !new.target ) {
@@ -79,7 +84,24 @@ function displayBooks()
         tableRow.appendChild(tableHeaderNumOfPages);
 
         let tableHeaderRead = document.createElement("td");
-        tableHeaderRead.textContent = book.read ? 'yes' : 'no';
+        let toggleReadButton = document.createElement("button");
+
+        toggleReadButton.id = book.id;
+        toggleReadButton.classList.add("toggle-read-button");
+        toggleReadButton.textContent = book.read ? "Read" : "Not read";
+
+        toggleReadButton.addEventListener("click", event => {
+            myLibrary = myLibrary.map(elm => {
+                if( elm.id === event.target.id )
+                    elm.toggleRead();
+                
+                return elm;
+            });
+
+            updateBooks();
+        });
+
+        tableHeaderRead.appendChild(toggleReadButton);
         tableRow.appendChild(tableHeaderRead);
 
         let tableHeaderRemove = document.createElement("td");

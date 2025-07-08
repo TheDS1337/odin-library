@@ -101,17 +101,17 @@ tr:nth-child(even) > td {
     border-radius: 10px;
 }
 
-.remove-button {
+.remove-button, .toggle-read-button {
     padding: 10px 20px;
     font-weight: bold;
     color: var(--palette-color-3);
     border-radius: 10px;
 }
 
-tr:nth-child(odd) .remove-button {
+tr:nth-child(odd) .remove-button, tr:nth-child(odd) .toggle-read-button {
     background-color: var(--palette-color-2);
 }
 
-tr:nth-child(even) .remove-button {
+tr:nth-child(even) .remove-button, tr:nth-child(even) .toggle-read-button {
     background-color: var(--palette-color-4);
 }
