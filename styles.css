@@ -1,4 +1,14 @@
+body {
+    background-color: #403963;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
 table {
+    margin: auto;
+    color: #f96d00;
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
 }
@@ -9,12 +19,8 @@ tr > * {
 }
 
 th {
-    color: #f96d00;
+    font-weight: bold;
     background-color: #222831;
-}
-
-td {
-    color: #f96d00;
 }
 
 tr:nth-child(even) > td {
@@ -23,4 +29,13 @@ tr:nth-child(even) > td {
 
 tr:nth-child(odd) > td {
   background-color: #393e46;
+}
+
+#add-book {
+    margin: auto;
+    padding: 10px 30px;
+    font-weight: bold;
+    color: #f96d00;
+    background-color: #222831;
+    border-radius: 10px;
 }
