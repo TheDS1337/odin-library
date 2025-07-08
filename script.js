@@ -1,4 +1,4 @@
-myLibrary = [];
+let myLibrary = [];
 
 Book.prototype.toggleRead = function()
 {
