@@ -30,11 +30,11 @@ th {
     background-color: var(--palette-color-1);
 }
 
-tr:nth-child(even) > td {
+tr:nth-child(odd) > td {
     background-color: var(--palette-color-4);
 }
 
-tr:nth-child(odd) > td {
+tr:nth-child(even) > td {
     background-color: var(--palette-color-2);
 }
 
@@ -94,10 +94,24 @@ tr:nth-child(odd) > td {
     background-color: var(--palette-color-2);
 }
 
-
 #new-book-dialog button {
     font-weight: bold;
     color: var(--palette-color-3);
     background-color: var(--palette-color-1);
     border-radius: 10px;
+}
+
+.remove-button {
+    padding: 10px 20px;
+    font-weight: bold;
+    color: var(--palette-color-3);
+    border-radius: 10px;
+}
+
+tr:nth-child(odd) .remove-button {
+    background-color: var(--palette-color-2);
+}
+
+tr:nth-child(even) .remove-button {
+    background-color: var(--palette-color-4);
 }

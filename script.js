@@ -1,4 +1,4 @@
-const myLibrary = [];
+myLibrary = [];
 
 function Book(title, author, publishingYear, numOfPages, read)
 {
@@ -51,6 +51,8 @@ function displayBooks()
     tableHeaderRead.textContent = "Has it been read?";
     tableFirstRow.appendChild(tableHeaderRead);
 
+    tableFirstRow.appendChild(document.createElement("th"));
+
     tableElement.appendChild(tableFirstRow);
 
     for( const book of myLibrary ) {
@@ -80,10 +82,37 @@ function displayBooks()
         tableHeaderRead.textContent = book.read ? 'yes' : 'no';
         tableRow.appendChild(tableHeaderRead);
 
+        let tableHeaderRemove = document.createElement("td");
+        let removeButton = document.createElement("button");
+
+        removeButton.id = book.id;
+        removeButton.classList.add("remove-button");
+        removeButton.textContent = "Remove";
+
+        removeButton.addEventListener("click", event => {
+            myLibrary = myLibrary.filter(elm => elm.id !== event.target.id);
+            updateBooks();
+        });
+
+        tableHeaderRemove.appendChild(removeButton);
+        tableRow.appendChild(tableHeaderRemove);
+
         tableElement.appendChild(tableRow);
     }
 
     bodyElement.insertBefore(tableElement, bodyElement.firstChild);
+}
+
+function updateBooks()
+{
+    // Remove old one in case it exists
+    const tableElement = document.querySelector("table");
+
+    if( tableElement !== null )
+        tableElement.remove();
+
+    // Recreat the table
+    displayBooks();
 }
 
 const bodyElement = document.querySelector("body");
@@ -115,12 +144,5 @@ dialogElement.addEventListener("close", () => {
         formData.get('read') === 'true'
     );
 
-    // Remove old one in case it exists
-    const tableElement = document.querySelector("table");
-
-    if( tableElement !== null )
-        tableElement.remove();
-
-    // Recreat the table
-    displayBooks();
+    updateBooks();
 });
