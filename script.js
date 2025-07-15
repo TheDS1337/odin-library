@@ -1,22 +1,19 @@
 let myLibrary = [];
 
-Book.prototype.toggleRead = function()
+class Book
 {
-    this.read = !this.read;
-}
-
-function Book(title, author, publishingYear, numOfPages, read)
-{
-    if( !new.target ) {
-        throw Error("This function can only be used as a Book object constructor.");
+    constructor(title, author, publishingYear, numOfPages, read) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.publishingYear = publishingYear;
+        this.numOfPages = numOfPages;
+        this.read = read;
     }
 
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.publishingYear = publishingYear;
-    this.numOfPages = numOfPages;
-    this.read = read;
+    toggleRead() {
+        this.read = !this.read;
+    }
 }
 
 function addBookToLibrary(title, author, publishingYear, numOfPages, read=false)
